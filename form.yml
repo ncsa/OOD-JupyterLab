@@ -1,0 +1,53 @@
+---
+
+cluster: "iforge"
+
+attributes:
+  bc_modules: 
+  label: "Python Environment"
+  widget: "select"
+  value: "conda/env/jupyter"
+  options: 
+    - ["jupyter","conda/env/jupyter"]
+
+  extra_jupyter_args: ""
+
+  bc_partition:
+    label: "Partition"
+    widget: "select"
+    value: "gpu"
+    options:
+      - ["gpu","gpu"]
+      - ["skylake","skylake"]
+      - ["big_mem","big_mem"]
+
+  bc_reservation:
+    label: "Name of reservation (leave empty if none)"
+    widget: "text_field"
+    value: ""
+
+  bc_num_slots:
+    label: "Number of CPUs"
+    widget: "number_field"
+    min: "4"
+    
+  bc_num_gpus:
+    label: "Number of GPUs"
+    widget: "number_field"
+    max: "4"
+    min: "0"
+
+  bc_num_hours:
+    label: "Number of hours"
+    widget: "number_field"
+    max: "24"
+    min: "1"
+
+form:
+  - modules
+  - extra_jupyter_args
+  - bc_partition
+  - bc_num_hours
+  - bc_reservation
+  - bc_num_slots
+  - bc_num_gpus

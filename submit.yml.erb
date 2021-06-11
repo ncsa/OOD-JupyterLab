@@ -1,0 +1,18 @@
+---
+batch_connect:
+  template: "basic"
+script:
+  queue_name: "<%= bc_partition %>"
+  native:
+    - "-N 1"
+    - "-n"
+    - "<%= bc_num_slots.blank? ? 1 : bc_num_slots.to_i %>"
+    - "-t"
+    - "0-<%= bc_num_hours %>"
+    <%- unless bc_num_gpus.blank? or bc_num_gpus.to_i == 0 -%>
+    - "--gres=gpu:v100:<%= bc_num_gpus %>"
+    <%- end -%>
+    <%- unless bc_reservation.blank? -%>
+    - "--reservation=<%= bc_reservation %>"
+    <%- end -%>
+

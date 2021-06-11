@@ -1,0 +1,8 @@
+---
+name: Jupyter Notebook
+icon: fa://desktop
+category: Interactive Apps
+subcategory: Jupyter
+role: batch_connect
+description: |
+    This app will launch a Jupyter Notebook server on one or more nodes.
