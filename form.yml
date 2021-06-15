@@ -3,9 +3,22 @@
 cluster: "iforge"
 
 attributes:
+#  modules: 
+#    label: "Conda Environments"
+#    widget: "select"
+#    value: "conda/env/jupyter"
+#    options: 
+#      - ["jupyter", "conda/env/jupyter"]
+
 
   modules: "conda/env/jupyter"
   extra_jupyter_args: ""
+
+  notebook_dir:
+    label: "Notebook Directory"
+    widget: text_area
+    help: "Enter path of notebook directory"
+    value: "~/notebooks"
 
   bc_partition:
     label: "Partition"
@@ -39,6 +52,7 @@ attributes:
     min: "1"
 
 form:
+  - notebook_dir
   - modules
   - extra_jupyter_args
   - bc_partition
