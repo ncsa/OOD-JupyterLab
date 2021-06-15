@@ -12,7 +12,6 @@ cd "${HOME}"
 
 <%- if not context.modules.blank? -%>
 # Purge the module environment to avoid conflicts
-#module purge
 module reset
 
 # Load the require modules
@@ -21,11 +20,10 @@ module load <%= context.modules %>
 # List loaded modules
 module list
 <%- end -%>
-module load conda/env/jupyter
 
 # Benchmark info
 echo "TIMING - Starting jupyter at: $(date)"
 
 # Launch the Jupyter Notebook Server
 set -x
-jupyter notebook --config="${CONFIG_FILE}" <%= context.extra_jupyter_args %>
+jupyter lab --config="${CONFIG_FILE}" <%= context.extra_jupyter_args %>

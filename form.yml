@@ -3,19 +3,14 @@
 cluster: "iforge"
 
 attributes:
-  bc_modules: 
-  label: "Python Environment"
-  widget: "select"
-  value: "conda/env/jupyter"
-  options: 
-    - ["jupyter","conda/env/jupyter"]
 
+  modules: "conda/env/jupyter"
   extra_jupyter_args: ""
 
   bc_partition:
     label: "Partition"
     widget: "select"
-    value: "gpu"
+    value: "skylake"
     options:
       - ["gpu","gpu"]
       - ["skylake","skylake"]
@@ -29,12 +24,12 @@ attributes:
   bc_num_slots:
     label: "Number of CPUs"
     widget: "number_field"
-    min: "4"
+    min: "1"
     
   bc_num_gpus:
     label: "Number of GPUs"
     widget: "number_field"
-    max: "4"
+    max: "2"
     min: "0"
 
   bc_num_hours:
